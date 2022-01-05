@@ -22,8 +22,18 @@ async function getSkills(req, res){
     .getPlayer(`${rsn}`)
     .then((datos)=>{  
       console.log(datos.skills); 
-      let hola = JSON.stringify(datos)
-      res.send(hola)     
+      let formatData = JSON.stringify(datos);
+
+
+      var json_data = datos.skills;
+      var result = [];
+      
+                          for(var i in json_data)
+                          result.push([i, json_data [i]]);
+
+
+
+      res.send({data:  datos.skills})     
     })
     .catch(console.error);
 
