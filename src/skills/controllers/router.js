@@ -3,7 +3,9 @@ const Router = require('express').Router();
 const Controller = require('./index.js');
 
 Router.get('/', Controller.getAll);
+Router.get('/xptable', Controller.getLvlTable);
 Router.get('/:rsn', Controller.getSkills);
+
 
 // Router.get('/day', Controller.getPaymentsByDay);
 // //Router.get('/day', validToken, Controller.getPaymentsByDay);
