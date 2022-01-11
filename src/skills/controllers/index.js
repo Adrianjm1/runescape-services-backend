@@ -2,6 +2,8 @@
 const Skill = require('../domain')
 const { hiscores } = require('osrs-json-api');
 
+const { QuestTool, questArray, questObject } = require('osrs-quest-tool')
+
 
 async function getAll(req, res) {
   try {
@@ -11,6 +13,20 @@ async function getAll(req, res) {
     res.status(400).send({ error: e.message })
   }
 }
+
+async function getQuest(req,res){
+
+    try{
+        
+        var tool = new QuestTool();
+
+        let data = tool.getQuestArray()
+
+            res.send(data)
+    }catch(e){
+
+    }
+ }
 
 
 async function getSkills(req, res) {
@@ -264,10 +280,9 @@ async function getLvlTable(req, res) {
 module.exports = {
   getAll,
   getSkills,
-  getLvlTable
+  getLvlTable,
+  getQuest
 }
-
-
 
 // INSERT INTO `skills` (`id`, `lvl`, `xpRequired`, `difference`, `createdAt`, `updatedAt`) VALUES
 //  (NULL, '1',   '0	        ', '0  ', '', ''),
@@ -479,4 +494,6 @@ module.exports = {
 // 9	         1.008.052     
 // 9	         1.112.977     
 // 9	         1.228.825     
-// 100	14.391.160	         1.356.729     
+// 100	14.391.160	         1.356.729 
+
+
