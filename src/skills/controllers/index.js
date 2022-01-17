@@ -1,6 +1,7 @@
 // const Payment = require('../domain');
 const Skill = require('../domain')
 const { hiscores } = require('osrs-json-api');
+const { constants } = require("osrs-api");
 
 const { QuestTool, questArray, questObject } = require('osrs-quest-tool')
 
@@ -28,6 +29,17 @@ async function getQuest(req,res){
     }
  }
 
+ async function getMinigames(req,res){
+
+    try{
+        
+        const data = constants.minigames
+
+            res.send(data)
+    }catch(e){
+
+    }
+ }
 
 async function getSkills(req, res) {
   try {
@@ -281,7 +293,8 @@ module.exports = {
   getAll,
   getSkills,
   getLvlTable,
-  getQuest
+  getQuest,
+  getMinigames
 }
 
 // INSERT INTO `skills` (`id`, `lvl`, `xpRequired`, `difference`, `createdAt`, `updatedAt`) VALUES

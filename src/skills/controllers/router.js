@@ -5,6 +5,7 @@ const Controller = require('./index.js');
 Router.get('/', Controller.getAll);
 Router.get('/xptable', Controller.getLvlTable);
 Router.get('/quest', Controller.getQuest);
+Router.get('/minigames', Controller.getMinigames);
 Router.get('/:rsn', Controller.getSkills);
 
 
